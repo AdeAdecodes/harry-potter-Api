@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/index.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="im" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/AjaxLoader.gif">
+    <link rel="stylesheet" href="index.css" />
     <title>Potter Api</title>
 </head>
 <body>
@@ -43,14 +42,14 @@
                     <p><input pattern="^[a-zA-Z]{2,12}$" id="Firstname" placeholder="Full name..." oninput="this.className = ''" name="fname" required></p>
                     <p><input pattern='^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$' id="emailaddres" placeholder="E-mail..." oninput="this.className = ''" name="email" required></p>
                     <p><input pattern= "^[0-9]{11,11}$" id="phonenumber" placeholder="Phone..." oninput="this.className = ''" name="phone" value="" required></p>
-                    <select>
+                    <select id="ddlViewBy">
                         <option value="javascript">javascript</option>
                         <option value="python">python</option>
                         <option value="C#">C#</option>
                         <option value="Php">Php</option>
                       </select>
                   </div>
-                  <div class="tab">Pick a house, charater and spell
+                  <div class="tab">Click submit after selecting a house, charater and spell
 
                     <div class="join">
                         <select id="locality-dropdown" name="locality"></select>
@@ -79,7 +78,7 @@
                           </div>
                           <div class="middle">
                             <div class="name" id="first"></div>
-                            <div class="title">Vice President</div>
+                            <div id="title" class="titles"></div>
                           </div>
                           <div class="bottom">
                             <div id="spell" class="address"></div>
@@ -164,6 +163,9 @@
       document.getElementById("spell").innerHTML = 
       document.getElementById("spells").value;
 
+      var e = document.getElementById("ddlViewBy");
+     var strUser = e.options[e.selectedIndex].text;
+     document.getElementById("title").innerHTML = strUser;
 }
  
     </script>

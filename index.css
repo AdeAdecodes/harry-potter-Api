@@ -9,7 +9,7 @@ html, body {margin:0; padding:0;}
 
 .title
 {
-  background:  rgb(59, 40, 2);
+  background: rgba(226, 223, 223, 0.5);
   color: #fff;
   padding: 0rem 5rem;
   top: 0;
@@ -279,8 +279,8 @@ input.invalid {
 @import "compass/css3";
 
 .card {
-  background: rgb(219, 139, 19);
-  color: hsla(0, 0%, 13.3%, 1);
+  background: rgb(235, 151, 25);
+  color: rgb(236, 227, 227);
   display: flex;
   flex-flow: column;
   height: 2in;
@@ -288,6 +288,7 @@ input.invalid {
   margin: 75px auto;
   position: relative;
   width: 3.5in;
+
   box-shadow: -4px 8px 10px rgb(114, 85, 41);
     text-shadow: 0px 2px 3px rgb(168, 141, 83);
 }
@@ -331,14 +332,15 @@ input.invalid {
   .name span {
     text-transform: uppercase;
   }
-  .title {
-    font-size: 8pt;
+  .titles {
+    font-size: 12pt;
+    background-color: #553607;
   }
 
 .bottom {
   display: flex;
   flex-flow: column;
-  font-size: 8pt;
+  font-size: 12pt;
   padding: 0 0 8pt 0;
   text-align: center;
 }
