@@ -181,10 +181,20 @@ footer{
    text-align: center;
 }
 .btn-close {
+  background-color: rgb(241, 231, 231);
   position: absolute;
   text-decoration: none;
   color: #ec0000;
   font-size: 30px;
+  padding: 10px;
+  display: flex;
+  border-radius: 900%;
+  border: #2c3e50;
+  transition: 3s;
+}
+.btn-close:hover{
+  background-color: rgb(219, 59, 59);
+  color: #ffdddd;
 }
 /* placeholders color */
 input::-webkit-input-placeholder { color: rgba(238, 135, 18, 0.8); }
@@ -280,7 +290,7 @@ input.invalid {
 
 .card {
   background: #ffff;
-  color: rgb(19, 51, 141);
+  color:rgba(197, 97, 3, 0.8);
   display: flex;
   flex-flow: column;
   height: 2in;
@@ -289,8 +299,7 @@ input.invalid {
   position: relative;
   width: 3.5in;
 
-  box-shadow: -4px 8px 10px rgb(104, 121, 168);
-    text-shadow: 0px 2px 3px rgb(95, 116, 175);
+  box-shadow: -4px 8px 10px rgb(162, 181, 235);
 }
   .card::after {
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/bone.jpg');
@@ -334,7 +343,7 @@ input.invalid {
   }
   .titles {
     font-size: 12pt;
-    background-color:  rgb(19, 51, 141);
+    background-color:  rgba(238, 135, 18, 0.8);
     color: #fff;
   }
 
