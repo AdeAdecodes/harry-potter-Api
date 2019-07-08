@@ -279,8 +279,8 @@ input.invalid {
 @import "compass/css3";
 
 .card {
-  background: rgb(235, 151, 25);
-  color: rgb(236, 227, 227);
+  background: #ffff;
+  color: rgb(19, 51, 141);
   display: flex;
   flex-flow: column;
   height: 2in;
@@ -289,8 +289,8 @@ input.invalid {
   position: relative;
   width: 3.5in;
 
-  box-shadow: -4px 8px 10px rgb(114, 85, 41);
-    text-shadow: 0px 2px 3px rgb(168, 141, 83);
+  box-shadow: -4px 8px 10px rgb(104, 121, 168);
+    text-shadow: 0px 2px 3px rgb(95, 116, 175);
 }
   .card::after {
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/17779/bone.jpg');
@@ -334,7 +334,8 @@ input.invalid {
   }
   .titles {
     font-size: 12pt;
-    background-color: #553607;
+    background-color:  rgb(19, 51, 141);
+    color: #fff;
   }
 
 .bottom {
@@ -346,7 +347,7 @@ input.invalid {
 }
 
 .scene {
-  color: hsla(0, 0%, 13.3%, 1);;
+  color:rgb(19, 51, 141);
   margin: 100px auto;
   text-shadow: 0px 2px 2px ;
   width: 400px;
