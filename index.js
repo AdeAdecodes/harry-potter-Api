@@ -19,6 +19,7 @@ function showTab(n) {
   if (n === 0) {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
+  
   if (n === 1) {
     document.getElementById("nextBtn").innerHTML = "Submit";
   }
@@ -39,6 +40,7 @@ function nextPrev(n) {
   // if you have reached the end of the form...
   if (currentTab >= x.length) {
     // ... the form gets submitted:
+
     document.getElementById("regForm").submit();
     return false;
   }
@@ -194,25 +196,21 @@ fetch(url, {key: key})
       
     });
 
-
    function getsubmit() {
-    document.getElementById("phone").innerHTML = 
-  document.getElementById("phonenumber").value;
-  document.getElementById("first").innerHTML = 
-  document.getElementById("Firstname").value; 
-  document.getElementById("email").innerHTML = 
-  document.getElementById("emailaddres").value; 
+    document.getElementById("phone").innerHTML = `Tel: ${
+  document.getElementById("phonenumber").value}`;
+  document.getElementById("first").innerHTML = `Name: ${
+  document.getElementById("Firstname").value}`; 
+  document.getElementById("email").innerHTML = `Email: ${
+  document.getElementById("emailaddres").value}`; 
  
   var e = document.getElementById("ddlViewBy");
  var strUser = e.options[e.selectedIndex].text;
- document.getElementById("title").innerHTML = strUser;
+ document.getElementById("title").innerHTML = `Stack: ${strUser}`;
 }
- 
+
 function getApiDetails(){
-  document.getElementById("house").innerHTML = 
-  document.getElementById("locality-dropdown").value;
-  document.getElementById("charater").innerHTML = 
-  document.getElementById("charaters").value;
-  document.getElementById("spell").innerHTML = 
-  document.getElementById("spells").value;
+  document.getElementById("house").innerHTML = `House: ${document.getElementById("locality-dropdown").value}`;
+  document.getElementById("charater").innerHTML = `Charater: ${document.getElementById("charaters").value}`;
+  document.getElementById("spell").innerHTML =  `Spell: ${document.getElementById("spells").value}`;
 }

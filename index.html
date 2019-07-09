@@ -35,7 +35,7 @@
         <div class="modal" id="modal-one" aria-hidden="true">
             <div class="modal-dialog">
                 <a href="#" class="btn-close" aria-hidden="true">×</a>
-                <form id="regForm" action="/action_page.php">
+                <form id="regForm" action="">
                   <h1>Harry Potter Spell</h1>
                   <!-- One "tab" for each step in the form: -->
                   <div class="tab">Personal details
@@ -63,8 +63,7 @@
                           <select id="charaters" name="locality"></select>
                         </div>
                         <div class="join">
-                            <select id="spells" name="locality">
-                              
+                            <select id="spells" name="locality" onchange="getApiDetails()">
                             </select>
                           </div>
 
