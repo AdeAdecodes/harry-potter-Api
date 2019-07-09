@@ -43,27 +43,29 @@
                     <p><input pattern='^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$' id="emailaddres" placeholder="E-mail..." oninput="this.className = ''" name="email" required></p>
                     <p><input pattern= "^[0-9]{11,11}$" id="phonenumber" placeholder="Phone..." oninput="this.className = ''" name="phone" value="" required></p>
                     <select id="ddlViewBy">
-                        <option value="javascript">javascript</option>
-                        <option value="python">python</option>
+                        <option>Choose programming language</option>
+                        <option value="Javascript">Javascript</option>
+                        <option value="Python">Python</option>
                         <option value="C#">C#</option>
                         <option value="Php">Php</option>
+                        <option value="C++">C++</option>
+                        <option value="Java">java</option>
+                        <option value="Ruby">Ruby</option>
+                        <option value="Switch">Switch</option>
                       </select>
                   </div>
                   <div class="tab">Click submit after selecting a house, charater and spell
 
                     <div class="join">
                         <select id="locality-dropdown" name="locality"></select>
-                       <button class="bon" type="button" onclick="getIndex()">Select</button>
                       </div>
                       <div class="join">
                           <select id="charaters" name="locality"></select>
-                          <button class="bon" type="button" onclick="getSpell()">Select</button>
                         </div>
                         <div class="join">
                             <select id="spells" name="locality">
                               
                             </select>
-                            <button class="bon" type="button" onclick="getsubmit()">Submit</button>
                           </div>
 
                   </div>
@@ -87,11 +89,14 @@
                         </div>
                   </div>
                   <div style="overflow:auto;">
-                    <div style="float:right;">
+                      <div style="float:left;">
                       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                      <button type="button" id="nextBtn" onclick="nextPrev(1)">Submit</button>
+                      </div>
+                      <div style="float:right;">
+                      <button type="button" id="nextBtn" onclick="nextPrev(1), getsubmit()" ></button>
                     </div>
                   </div>
+                  <p id="mess"></p>
                   <!-- Circles which indicates the steps of the form: -->
                   <div style="text-align:center;margin-top:40px;">
                     <span class="step"></span>
@@ -148,26 +153,5 @@
     <script src="index.js"></script>
     <script type="text/javascript" src="//use.typekit.net/wtt0gtr.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <script>
-      function getsubmit() {
-        document.getElementById("phone").innerHTML = 
-      document.getElementById("phonenumber").value;
-      document.getElementById("first").innerHTML = 
-      document.getElementById("Firstname").value; 
-      document.getElementById("email").innerHTML = 
-      document.getElementById("emailaddres").value; 
-      document.getElementById("house").innerHTML = 
-      document.getElementById("locality-dropdown").value;
-      document.getElementById("charater").innerHTML = 
-      document.getElementById("charaters").value;
-      document.getElementById("spell").innerHTML = 
-      document.getElementById("spells").value;
-
-      var e = document.getElementById("ddlViewBy");
-     var strUser = e.options[e.selectedIndex].text;
-     document.getElementById("title").innerHTML = strUser;
-}
- 
-    </script>
 </body>
 </html>
