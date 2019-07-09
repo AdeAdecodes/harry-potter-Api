@@ -6,16 +6,23 @@ function showTab(n) {
   var x = document.getElementsByClassName("tab");
   x[n].style.display = "block";
   //... and fix the Previous/Next buttons:
-  if (n == 0) {
+  if ((n !== 1)){
     document.getElementById("prevBtn").style.display = "none";
   } else {
     document.getElementById("prevBtn").style.display = "inline";
   }
-  if (n == (x.length - 1)) {
-    document.getElementById("nextBtn").innerHTML = "Submit";
-  } else {
+
+  if (n > 1) {
+    document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("mess").innerHTML = "Thanks";
+  } 
+  if (n === 0) {
     document.getElementById("nextBtn").innerHTML = "Next";
   }
+  if (n === 1) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  }
+
   //... and run a function that will display the correct step indicator:
   fixStepIndicator(n)
 }
@@ -74,10 +81,9 @@ function fixStepIndicator(n) {
 let dropdown = document.getElementById('locality-dropdown');
 dropdown.length = 0;
 
-let defaultOption = document.createElement('option');
-defaultOption.id='harry'
-defaultOption.text = 'Choose house';
-dropdown.add(defaultOption);
+let house = document.createElement('option');
+house.text = 'Choose house';
+dropdown.add(house);
 dropdown.selectedIndex = 0;
 
 const key = '$2a$10$LRlkfHA/dy9Od7jWbK6yTusdmuzjVvxj8LDusiAYB.DdVHnoWcHS.';
@@ -93,13 +99,12 @@ fetch(url, {key: key})
       if (response.status !== 200) {  
         console.warn('Looks like there was a problem. Status Code: ' + 
           response.status);  
-        return;  
+        return;   
       }
 
       // Examine the text in the response  
       response.json().then(function(data) {  
         let option;
-        console.log(data);
     	for (let i = 0; i < data.length; i++) {
           option = document.createElement('option');
       	  option.text = data[i].name;
@@ -114,24 +119,20 @@ fetch(url, {key: key})
     console.error('Fetch Error -', err);  
   });       
 
-  const getIndex = () => {
- 
-    let val= document.getElementById("locality-dropdown").value;
-    let dropdown = document.getElementById('charaters');
-   dropdown.length = 0;
-   
-   let defaultOption = document.createElement('option');
-   defaultOption.text = 'Choose charaters';
-   dropdown.add(defaultOption);
-   dropdown.selectedIndex = 0;
+
+
+  dropdown.addEventListener('change', (event) => {
+    const result = event.target.value;
+    let charElement = document.getElementById('charaters');
+    let char = document.createElement('option');
+        char.text = 'Choose charaters';
+        charElement.add(char);
    
    const key = '$2a$10$LRlkfHA/dy9Od7jWbK6yTusdmuzjVvxj8LDusiAYB.DdVHnoWcHS.';
-   const url = new URL('https://www.potterapi.com/v1/characters/'), params = {key: key, house: `${val}`}
+   const url = new URL('https://www.potterapi.com/v1/characters/'), params = {key: key, house: `${result}`}
    
    Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-   
-   
-    
+      
    fetch(url, {key: key})  
      .then(  
        function(response) {  
@@ -141,71 +142,77 @@ fetch(url, {key: key})
            return;  
          }
    
-         // Examine the text in the response  
          response.json().then(function(data) {  
            let option;
-           console.log(data);
          for (let i = 0; i < data.length; i++) {
              option = document.createElement('option');
              option.text = data[i].name;
              option.id = data[i].id;
-             dropdown.add(option);
+             charElement.add(option);
          }    
-         
          });  
        }  
      )  
      .catch(function(err) {  
        console.error('Fetch Error -', err);  
-     });       
+     });      
+
+
+     let apell = document.getElementById('spells'); 
+     let spel = document.createElement('option');
+         spel.text = 'Choose spells';
+         apell.add(spel);
    
-    
-   };
-   const getSpell = () => {
+     const urld = new URL('https://www.potterapi.com/v1/spells');  
+     Object.keys(params).forEach(key => urld.searchParams.append(key, params[key]))
+      fetch(urld, {key: key})  
+        .then(  
+          function(response) {  
+            if (response.status !== 200) {  
+              console.warn('Looks like there was a problem. Status Code: ' + 
+                response.status);  
+              return;  
+            }
+      
+            // Examine the text in the response  
+            response.json().then(function(data) {  
+              let option;
+              console.log(data);
+            for (let i = 0; i < data.length; i++) {
+                option = document.createElement('option');
+                option.text = data[i].spell;
+                option.id = data[i].id;
+                apell.add(option);
+            }    
+            
+            });  
+          }  
+        )  
+        .catch(function(err) {  
+          console.error('Fetch Error -', err);  
+        });       
+      
+    });
+
+
+   function getsubmit() {
+    document.getElementById("phone").innerHTML = 
+  document.getElementById("phonenumber").value;
+  document.getElementById("first").innerHTML = 
+  document.getElementById("Firstname").value; 
+  document.getElementById("email").innerHTML = 
+  document.getElementById("emailaddres").value; 
  
-    document.getElementById("charaters").value;
-    let dropdown = document.getElementById('spells');
-   dropdown.length = 0;
-   
-   let defaultOption = document.createElement('option');
-   defaultOption.text = 'Choose spells';
-   dropdown.add(defaultOption);
-   dropdown.selectedIndex = 0;
-   
-   const key = '$2a$10$LRlkfHA/dy9Od7jWbK6yTusdmuzjVvxj8LDusiAYB.DdVHnoWcHS.';
-   const url = new URL('https://www.potterapi.com/v1/spells'), params = {key: key,}
-   
-   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
-   
-   
-    
-   fetch(url, {key: key})  
-     .then(  
-       function(response) {  
-         if (response.status !== 200) {  
-           console.warn('Looks like there was a problem. Status Code: ' + 
-             response.status);  
-           return;  
-         }
-   
-         // Examine the text in the response  
-         response.json().then(function(data) {  
-           let option;
-           console.log(data);
-         for (let i = 0; i < data.length; i++) {
-             option = document.createElement('option');
-             option.text = data[i].spell;
-             option.id = data[i].id;
-             dropdown.add(option);
-         }    
-         
-         });  
-       }  
-     )  
-     .catch(function(err) {  
-       console.error('Fetch Error -', err);  
-     });       
-   
-    
-   };
-   
+  var e = document.getElementById("ddlViewBy");
+ var strUser = e.options[e.selectedIndex].text;
+ document.getElementById("title").innerHTML = strUser;
+}
+ 
+function getApiDetails(){
+  document.getElementById("house").innerHTML = 
+  document.getElementById("locality-dropdown").value;
+  document.getElementById("charater").innerHTML = 
+  document.getElementById("charaters").value;
+  document.getElementById("spell").innerHTML = 
+  document.getElementById("spells").value;
+}
