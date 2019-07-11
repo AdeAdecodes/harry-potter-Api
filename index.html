@@ -39,20 +39,17 @@
                   <h1>Harry Potter Spell</h1>
                   <!-- One "tab" for each step in the form: -->
                   <div class="tab">Personal details
-                    <p><input pattern="^[a-zA-Z]{2,12}$" id="Firstname" placeholder="Full name..." oninput="this.className = ''" name="fname" required></p>
-                    <p><input pattern='^(\w[-._+\w]*\w@\w[-._\w]*\w\.\w{2,3})$' id="emailaddres" placeholder="E-mail..." oninput="this.className = ''" name="email" required></p>
-                    <p><input pattern= "^[0-9]{11,11}$" id="phonenumber" placeholder="Phone..." oninput="this.className = ''" name="phone" value="" required></p>
-                    <select id="ddlViewBy">
-                        <option>Choose programming language</option>
-                        <option value="Javascript">Javascript</option>
-                        <option value="Python">Python</option>
-                        <option value="C#">C#</option>
-                        <option value="Php">Php</option>
-                        <option value="C++">C++</option>
-                        <option value="Java">java</option>
-                        <option value="Ruby">Ruby</option>
-                        <option value="Switch">Switch</option>
-                      </select>
+                    <p><input class="input" id="Firstname" placeholder="Full name..." name="fname" required></p>
+                    <p><input class="input" id="emailaddres" placeholder="E-mail..." name="email" required></p>
+                    <p><input class="input" id="phonenumber" placeholder="Phone..." name="phone" value="" required></p>
+                    <div class="input-wrapper">
+                      <input class="input-field" id="prog" type="text" placeholder="Enter programming language"/>
+                      <span class="input-addon" onclick="add()">add</span>
+                    </div>
+                    <ul id="jog" > 
+                   
+
+                      </ul>
                   </div>
                   <div class="tab">Click submit after selecting a house, charater and spell
 
@@ -92,7 +89,7 @@
                       <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
                       </div>
                       <div style="float:right;">
-                      <button type="button" id="nextBtn" onclick="nextPrev(1), getsubmit()" ></button>
+                      <button type="button" id="nextBtn" onclick="nextPrev(1), getsubmit(), getItems()" ></button>
                     </div>
                   </div>
                   <p id="mess"></p>
